@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="converter-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="converter-dashboard">
+            <div class="header">
+                <h1>📐 Unit Converter</h1>
+                <p class="subtitle">Convert between different units instantly</p>
+            </div>
+
+            <div class="converter-selector">
+                <button class="converter-btn active" data-type="temperature">🌡️ Temperature</button>
+                <button class="converter-btn" data-type="distance">📏 Distance</button>
+                <button class="converter-btn" data-type="weight">⚖️ Weight</button>
+                <button class="converter-btn" data-type="volume">🧪 Volume</button>
+            </div>
+
+            <div class="converter-container">
+                <!-- Temperature Converter -->
+                <div class="converter active" id="temperature-converter">
+                    <div class="conversion-box">
+                        <div class="input-group">
+                            <label for="tempInput">From:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="tempInput" placeholder="Enter value" value="0">
+                                <select id="tempFromUnit">
+                                    <option value="celsius">Celsius (°C)</option>
+                                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                                    <option value="kelvin">Kelvin (K)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="swap-btn-container">
+                            <button class="swap-btn" onclick="swapUnits('temp')" title="Swap units">⇅</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="tempOutput">To:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="tempOutput" placeholder="Result" readonly>
+                                <select id="tempToUnit">
+                                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                                    <option value="celsius">Celsius (°C)</option>
+                                    <option value="kelvin">Kelvin (K)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distance Converter -->
+                <div class="converter" id="distance-converter">
+                    <div class="conversion-box">
+                        <div class="input-group">
+                            <label for="distInput">From:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="distInput" placeholder="Enter value" value="0">
+                                <select id="distFromUnit">
+                                    <option value="mm">Millimeter (mm)</option>
+                                    <option value="cm">Centimeter (cm)</option>
+                                    <option value="m">Meter (m)</option>
+                                    <option value="km">Kilometer (km)</option>
+                                    <option value="in">Inch (in)</option>
+                                    <option value="ft">Foot (ft)</option>
+                                    <option value="yd">Yard (yd)</option>
+                                    <option value="mi">Mile (mi)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="swap-btn-container">
+                            <button class="swap-btn" onclick="swapUnits('dist')" title="Swap units">⇅</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="distOutput">To:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="distOutput" placeholder="Result" readonly>
+                                <select id="distToUnit">
+                                    <option value="m">Meter (m)</option>
+                                    <option value="mm">Millimeter (mm)</option>
+                                    <option value="cm">Centimeter (cm)</option>
+                                    <option value="km">Kilometer (km)</option>
+                                    <option value="in">Inch (in)</option>
+                                    <option value="ft">Foot (ft)</option>
+                                    <option value="yd">Yard (yd)</option>
+                                    <option value="mi">Mile (mi)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weight Converter -->
+                <div class="converter" id="weight-converter">
+                    <div class="conversion-box">
+                        <div class="input-group">
+                            <label for="weightInput">From:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="weightInput" placeholder="Enter value" value="0">
+                                <select id="weightFromUnit">
+                                    <option value="mg">Milligram (mg)</option>
+                                    <option value="g">Gram (g)</option>
+                                    <option value="kg">Kilogram (kg)</option>
+                                    <option value="oz">Ounce (oz)</option>
+                                    <option value="lb">Pound (lb)</option>
+                                    <option value="ton">Metric Ton (ton)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="swap-btn-container">
+                            <button class="swap-btn" onclick="swapUnits('weight')" title="Swap units">⇅</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="weightOutput">To:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="weightOutput" placeholder="Result" readonly>
+                                <select id="weightToUnit">
+                                    <option value="g">Gram (g)</option>
+                                    <option value="mg">Milligram (mg)</option>
+                                    <option value="kg">Kilogram (kg)</option>
+                                    <option value="oz">Ounce (oz)</option>
+                                    <option value="lb">Pound (lb)</option>
+                                    <option value="ton">Metric Ton (ton)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volume Converter -->
+                <div class="converter" id="volume-converter">
+                    <div class="conversion-box">
+                        <div class="input-group">
+                            <label for="volInput">From:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="volInput" placeholder="Enter value" value="0">
+                                <select id="volFromUnit">
+                                    <option value="ml">Milliliter (ml)</option>
+                                    <option value="l">Liter (l)</option>
+                                    <option value="floz">Fluid Ounce (fl oz)</option>
+                                    <option value="cup">Cup (cup)</option>
+                                    <option value="pint">Pint (pt)</option>
+                                    <option value="gallon">Gallon (gal)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="swap-btn-container">
+                            <button class="swap-btn" onclick="swapUnits('vol')" title="Swap units">⇅</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="volOutput">To:</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="volOutput" placeholder="Result" readonly>
+                                <select id="volToUnit">
+                                    <option value="l">Liter (l)</option>
+                                    <option value="ml">Milliliter (ml)</option>
+                                    <option value="floz">Fluid Ounce (fl oz)</option>
+                                    <option value="cup">Cup (cup)</option>
+                                    <option value="pint">Pint (pt)</option>
+                                    <option value="gallon">Gallon (gal)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conversion-history">
+                <div class="history-header">
+                    <h2>📜 Conversion History</h2>
+                    <button id="clearHistoryBtn" class="clear-btn">Clear</button>
+                </div>
+                <div id="historyContainer" class="history-container">
+                    <p class="empty-message">No conversions yet</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-item">
+                    <strong>💡 Quick Tips:</strong>
+                    <ul>
+                        <li>Type a value to instantly see the conversion</li>
+                        <li>Use the swap button (⇅) to reverse the conversion</li>
+                        <li>All conversions are accurate and real-time</li>
+                        <li>Your conversion history is saved automatically</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="converter-script.js"></script>
+</body>
+</html>
