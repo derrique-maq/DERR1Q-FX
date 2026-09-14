@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="timer-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer-dashboard">
+            <div class="header">
+                <h1>⏱️ Countdown Timer</h1>
+                <p class="subtitle">Set and track your time</p>
+            </div>
+
+            <!-- Main Timer Display -->
+            <div class="timer-display-section">
+                <div class="timer-display">
+                    <div class="time-value" id="timeDisplay">00:00:00</div>
+                    <div class="timer-label">Hours : Minutes : Seconds</div>
+                </div>
+
+                <div class="progress-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" class="progress-background"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress-fill" id="progressCircle"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Timer Input Section -->
+            <div class="input-section">
+                <div class="time-input-group">
+                    <div class="time-input-item">
+                        <label for="hours">Hours</label>
+                        <input type="number" id="hours" min="0" max="23" value="0">
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-input-item">
+                        <label for="minutes">Minutes</label>
+                        <input type="number" id="minutes" min="0" max="59" value="1">
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-input-item">
+                        <label for="seconds">Seconds</label>
+                        <input type="number" id="seconds" min="0" max="59" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Buttons -->
+            <div class="preset-buttons">
+                <button class="preset-btn" onclick="setPreset(1 * 60)">1 Min</button>
+                <button class="preset-btn" onclick="setPreset(5 * 60)">5 Min</button>
+                <button class="preset-btn" onclick="setPreset(10 * 60)">10 Min</button>
+                <button class="preset-btn" onclick="setPreset(15 * 60)">15 Min</button>
+                <button class="preset-btn" onclick="setPreset(30 * 60)">30 Min</button>
+                <button class="preset-btn" onclick="setPreset(60 * 60)">1 Hour</button>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="control-buttons">
+                <button id="startBtn" class="btn btn-primary" onclick="startTimer()">▶ Start</button>
+                <button id="pauseBtn" class="btn btn-secondary" onclick="pauseTimer()" disabled>⏸ Pause</button>
+                <button id="resetBtn" class="btn btn-danger" onclick="resetTimer()">🔄 Reset</button>
+            </div>
+
+            <!-- Sound Control -->
+            <div class="sound-control">
+                <label for="soundToggle" class="sound-label">
+                    <input type="checkbox" id="soundToggle" checked>
+                    🔔 Sound Notification
+                </label>
+            </div>
+
+            <!-- Multiple Timers Section -->
+            <div class="multiple-timers-section">
+                <div class="section-header">
+                    <h2>⏱️ Saved Timers</h2>
+                    <button id="addTimerBtn" class="add-btn" onclick="addSavedTimer()">+ Add</button>
+                </div>
+                <div id="timersContainer" class="timers-container">
+                    <p class="empty-message">No saved timers yet</p>
+                </div>
+            </div>
+
+            <!-- Timer History -->
+            <div class="history-section">
+                <div class="section-header">
+                    <h2>📜 Timer History</h2>
+                    <button class="clear-btn" onclick="clearHistory()">Clear</button>
+                </div>
+                <div id="historyContainer" class="history-container">
+                    <p class="empty-message">No timer history yet</p>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-item">
+                    <strong>💡 Tips:</strong>
+                    <ul>
+                        <li>Enter time manually or use preset buttons</li>
+                        <li>Use pause to temporarily stop the timer</li>
+                        <li>Sound notification plays when timer ends</li>
+                        <li>Save frequently used timers for quick access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden audio element for notification -->
+    <audio id="notificationSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==" type="audio/wav">
+    </audio>
+
+    <script src="timer-script.js"></script>
+</body>
+</html>
