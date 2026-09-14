@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="joke-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="joke-generator">
+            <h1>🎭 Joke Generator</h1>
+            <p class="subtitle">Get a laugh with random jokes!</p>
+            
+            <div class="joke-display">
+                <div id="jokeContent" class="joke-content">
+                    <p>Click the button to generate a joke!</p>
+                </div>
+            </div>
+
+            <div class="button-section">
+                <button id="generateBtn" class="generate-btn">Get a Joke</button>
+                <button id="copyBtn" class="copy-btn" title="Copy joke to clipboard">📋 Copy</button>
+            </div>
+
+            <div class="category-section">
+                <p class="category-label">Select Category:</p>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="any">Any</button>
+                    <button class="category-btn" data-category="general">General</button>
+                    <button class="category-btn" data-category="programming">Programming</button>
+                    <button class="category-btn" data-category="knock-knock">Knock-Knock</button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <span id="jokesGenerated">Jokes generated: 0</span>
+                <button id="historyBtn" class="history-btn">📚 History</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Joke History</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <ul id="historyList" class="history-list">
+                <!-- Jokes will be added here -->
+            </ul>
+            <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="joke-script.js"></script>
+</body>
+</html>
