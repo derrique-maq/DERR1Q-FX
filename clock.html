@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clock-dashboard">
+            <div class="header">
+                <h1>🕐 Digital Clock</h1>
+                <p class="subtitle">Time zones around the world</p>
+            </div>
+
+            <div class="main-clock">
+                <div class="clock-display">
+                    <div id="mainTime" class="main-time">00:00:00</div>
+                    <div id="mainDate" class="main-date">Loading...</div>
+                    <div id="mainZone" class="main-zone">Local Time</div>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="timezone-input">
+                    <select id="timezoneSelect" class="timezone-select">
+                        <option value="" disabled selected>Select a time zone...</option>
+                    </select>
+                    <button id="addBtn" class="add-btn">+ Add Time Zone</button>
+                </div>
+            </div>
+
+            <div class="quick-zones">
+                <p class="quick-label">Popular Time Zones:</p>
+                <div class="quick-buttons">
+                    <button class="quick-btn" data-zone="UTC">UTC</button>
+                    <button class="quick-btn" data-zone="America/New_York">New York</button>
+                    <button class="quick-btn" data-zone="Europe/London">London</button>
+                    <button class="quick-btn" data-zone="Europe/Paris">Paris</button>
+                    <button class="quick-btn" data-zone="Asia/Tokyo">Tokyo</button>
+                    <button class="quick-btn" data-zone="Asia/Dubai">Dubai</button>
+                    <button class="quick-btn" data-zone="Australia/Sydney">Sydney</button>
+                    <button class="quick-btn" data-zone="Asia/Singapore">Singapore</button>
+                </div>
+            </div>
+
+            <div class="clocks-section">
+                <h2>Added Time Zones</h2>
+                <div id="clocksContainer" class="clocks-container">
+                    <div class="empty-state">
+                        <p>No time zones added yet. Select from popular zones or add a custom one!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <button id="clearBtn" class="clear-btn">Clear All</button>
+                <p class="info-text">💡 Click "Clear All" to reset all time zones</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
