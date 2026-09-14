@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="weather-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-dashboard">
+            <div class="header">
+                <h1>🌤️ Weather Dashboard</h1>
+                <p class="subtitle">Get real-time weather information</p>
+            </div>
+
+            <div class="search-section">
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        placeholder="Enter city name..." 
+                        class="city-input"
+                    >
+                    <button id="searchBtn" class="search-btn">Search</button>
+                </div>
+                <div class="favorites-section">
+                    <p class="favorites-label">Favorites:</p>
+                    <div id="favoritesList" class="favorites-list">
+                        <!-- Favorite cities will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="currentWeather" class="current-weather">
+                <div class="weather-placeholder">
+                    <p>Search for a city to see weather information</p>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <h2>5-Day Forecast</h2>
+                <div id="forecastContainer" class="forecast-container">
+                    <!-- Forecast will be added here -->
+                </div>
+            </div>
+
+            <div class="info-section">
+                <p class="info-text">💡 Data from Open-Meteo API • Updates automatically • No API key required</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="weather-script.js"></script>
+</body>
+</html>
